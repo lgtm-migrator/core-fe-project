@@ -5,7 +5,6 @@ import userEvent from "@testing-library/user-event";
 import {Provider, useSelector} from "react-redux";
 import {idleReducer, idleTimeoutActions, State} from "../../src/reducer";
 import {combineReducers, createStore, Store} from "redux";
-import "@testing-library/jest-dom";
 
 describe("IdleDetector Provider Integration Test", () => {
     let store: Store;
@@ -33,12 +32,7 @@ describe("IdleDetector Provider Integration Test", () => {
     test("testing context", () => {
         function TestComponent() {
             const idle = React.useContext(IdleDetectorContext);
-            return (
-                <React.Fragment>
-                    <input data-testid="file" type="file" />
-                    <div data-testid="context-value">{idle.state}</div>
-                </React.Fragment>
-            );
+            return <div data-testid="context-value">{idle.state}</div>;
         }
         testComponentWithUserEvent(Wrapper(<TestComponent />), "context-value");
     });
@@ -71,11 +65,6 @@ function testComponentWithUserEvent(component: React.ReactElement, testId: strin
     expect(getByTestId(testId)).toHaveTextContent("idle");
 
     userEvent["dblClick"](document.body);
-    expect(getByTestId(testId)).toHaveTextContent("active");
-    jest.runOnlyPendingTimers();
-    expect(getByTestId(testId)).toHaveTextContent("idle");
-
-    userEvent.hover(document.body);
     expect(getByTestId(testId)).toHaveTextContent("active");
     jest.runOnlyPendingTimers();
     expect(getByTestId(testId)).toHaveTextContent("idle");

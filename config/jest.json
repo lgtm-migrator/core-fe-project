@@ -9,12 +9,13 @@
     "moduleFileExtensions": ["ts", "tsx", "js"],
     "moduleDirectories": ["node_modules", "src"],
     "testEnvironment": "jsdom",
+    "setupFilesAfterEnv": ["@testing-library/jest-dom/extend-expect"],
     "testEnvironmentOptions": {
         "url": "http://127.0.0.1"
     },
     "globals": {
         "ts-jest": {
-            "tsconfig": "./config/tsconfig.json"
+            "tsconfig": "./config/tsconfig.test.json"
         }
     }
 }
