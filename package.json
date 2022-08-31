@@ -16,7 +16,8 @@
     "scripts": {
         "build": "node script/build.js",
         "test": "jest --config config/jest.json",
-        "format": "prettier --config config/prettier.json --write \"{src,test,script,config}/**/*.{js,ts,tsx,json}\""
+        "format": "prettier --config config/prettier.json --write \"{src,test,script,config}/**/*.{js,ts,tsx,json}\"",
+        "prepublish": ""
     },
     "devDependencies": {
         "react": "18.2.0",
@@ -45,6 +46,8 @@
         "@types/react-dom": "18.0.6",
         "@types/react-router": "5.1.19",
         "@types/history": "4.7.11",
+        "@types/react": "18.0.15",
+        "@types/react-dom": "18.0.6",
         "@types/react-redux": "7.1.24",
         "@types/react-router-dom": "5.3.3",
         "axios": "0.27.2",
