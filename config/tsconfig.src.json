@@ -2,7 +2,8 @@
     "extends": "./tsconfig.base.json",
     "compilerOptions": {
         "rootDir": "../src",
-        "outDir": "../lib",
+        "outDir": "../build",
+        "composite": true,
         "declarationMap": true,
         "jsx": "react",
         "lib": ["DOM", "ES2020"],
